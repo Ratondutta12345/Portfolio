@@ -1,16 +1,19 @@
-# 🌟 Raton Dutta's Portfolio
-
 <div align="center">
 
-  <!-- Logo -->
-  <img src="public/images/logo.svg" alt="Portfolio Logo" width="120" height="120">
+<img src="./public/images/logo.svg" alt="Portfolio Logo" width="90" />
 
-### ✨ Student Developer | Chief Problem Solver | Solution Sorcerer
+# 🌟 Raton Dutta — Portfolio
 
-<kbd>My space on the web</kbd> showcasing modern web development with stunning dark aesthetics
+### Student Developer · Full‑Stack Engineer · AI Tinkerer
 
-![Portfolio Banner](https://img.shields.io/badge/Portfolio-Live%20Demo-9333ea?style=for-the-badge&logo=vercel&logoColor=white)
-[![MIT License](https://img.shields.io/badge/📄%20License-MIT-00D26A?style=for-the-badge)](https://opensource.org/license/mit)
+*A dark‑luxury, glassmorphic developer portfolio built with Next.js 15 & React 19*
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-portfolio--e7t2.vercel.app-9333ea?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-e7t2.vercel.app/)
+[![License: MIT](https://img.shields.io/badge/📄_License-MIT-00D26A?style=for-the-badge)](https://opensource.org/license/mit)
+[![Next.js](https://img.shields.io/badge/Next.js-15.4.4-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Stars](https://img.shields.io/github/stars/Ratondutta12345/Portfolio?style=for-the-badge&color=a855f7)](https://github.com/Ratondutta12345/Portfolio/stargazers)
+
+**If this project inspired you or helped you build your own, drop it a ⭐ — it genuinely helps.**
 
 </div>
 
@@ -24,214 +27,232 @@
 - [🎨 Design System](#-design-system)
 - [🚀 Quick Start](#-quick-start)
 - [⚙️ Customization](#️-customization)
-- [📸 Screenshots](#-screenshots)
+- [📂 Project Structure](#-project-structure)
+- [📸 Preview](#-preview)
+- [🤝 Contributing](#-contributing)
 - [🔗 Connect](#-connect)
 
 ---
 
 ## 🎯 Overview
 
-A modern, responsive portfolio website built with **Next.js 15** and **React 19**, featuring stunning dark aesthetics and smooth animations. This project showcases advanced web development practices with a focus on performance, accessibility, and user experience.
+A modern, responsive portfolio website built with **Next.js 15** and **React 19**, featuring an ultra-dark aesthetic, glassmorphism, and smooth motion-driven interactions. Designed as both a personal showcase and a reusable template for developers who want a premium, animated portfolio without starting from scratch.
 
-**🌐 Live Demo:** [ratondutta.vercel.app](https://ratondutta.vercel.app)
-**📱 GitHub:** [github.com/Ratondutta12345/An](https://github.com/Ratondutta12345/An)
+| | |
+|---|---|
+| 🌐 **Live Demo** | [portfolio-e7t2.vercel.app](https://portfolio-e7t2.vercel.app/) |
+| 📦 **Repository** | [github.com/Ratondutta12345/Portfolio](https://github.com/Ratondutta12345/Portfolio) |
+
+---
 
 ## ✨ Features
 
-| Feature                      | Description                                             |
-| ---------------------------- | ------------------------------------------------------- |
-| 🎨 **Dark Luxury Theme**     | Ultra-dark design with purple accents and glass effects |
-| ⚡ **Performance Optimized** | Next.js 15 with Turbopack for lightning-fast builds     |
-| 📱 **Fully Responsive**      | Seamless experience across all device sizes             |
-| 🎭 **Smooth Animations**     | Motion-powered interactions and transitions             |
-| 📧 **Contact System**        | Integrated email functionality with React Email         |
-| 🔍 **SEO Optimized**         | Complete meta tags, sitemap, robots.txt                 |
-| 🛡️ **Security Headers**      | Enhanced security with proper headers configuration     |
-| 📄 **PDF Resume**            | Integrated resume viewer with error boundaries          |
-| 🎯 **Interactive UI**        | Modern glassmorphism and hover effects                  |
+| Feature | Description |
+|---|---|
+| 🎨 **Dark Luxury Theme** | Ultra-dark palette with purple accents and glass effects |
+| ⚡ **Performance Optimized** | Next.js 15 + Turbopack for lightning-fast builds |
+| 📱 **Fully Responsive** | Seamless experience across every device size |
+| 🎭 **Smooth Animations** | Motion-powered transitions and micro-interactions |
+| 📧 **Contact System** | Integrated email delivery via React Email + Nodemailer |
+| 🔍 **SEO Optimized** | Full meta tags, sitemap, robots.txt, OpenGraph/Twitter cards |
+| 🛡️ **Security Headers** | Hardened response headers out of the box |
+| 📄 **PDF Resume Viewer** | Built-in resume viewer with error boundaries |
+| 🎯 **Interactive UI** | Glassmorphism, hover states, and neon accent glows |
+
+---
 
 ## 🛠️ Tech Stack
 
-### **Frontend Framework**
+**Frontend Framework**
 
-| Technology     | Version  | Purpose                  |
-| -------------- | -------- | ------------------------ |
-| **Next.js**    | `15.4.4` | React framework with SSR |
-| **React**      | `19.1.0` | UI library               |
-| **TypeScript** | `^5.0`   | Type-safe JavaScript     |
+| Technology | Version | Purpose |
+|---|---|---|
+| Next.js | `15.4.4` | React framework with SSR |
+| React | `19.1.0` | UI library |
+| TypeScript | `^5.0` | Type-safe JavaScript |
 
-### **Styling & UI**
+**Styling & UI**
 
-| Technology                   | Version    | Purpose                |
-| ---------------------------- | ---------- | ---------------------- |
-| **Tailwind CSS**             | `^3.4.17`  | Utility-first CSS      |
-| **Motion**                   | `^12.23.9` | Animation library      |
-| **Radix UI**                 | `^1.2.3`   | Headless UI components |
-| **Class Variance Authority** | `^0.7.1`   | Component variants     |
+| Technology | Version | Purpose |
+|---|---|---|
+| Tailwind CSS | `^3.4.17` | Utility-first styling |
+| Motion | `^12.23.9` | Animation library |
+| Radix UI | `^1.2.3` | Headless, accessible components |
+| Class Variance Authority | `^0.7.1` | Component variant management |
 
-### **Email & Communication**
+**Email & Communication**
 
-| Technology      | Version  | Purpose             |
-| --------------- | -------- | ------------------- |
-| **React Email** | `^0.3.2` | Email templates     |
-| **Nodemailer**  | `^7.0.5` | Email sending       |
-| **Sonner**      | `^2.0.6` | Toast notifications |
+| Technology | Version | Purpose |
+|---|---|---|
+| React Email | `^0.3.2` | Email templates |
+| Nodemailer | `^7.0.5` | Sending contact-form emails |
+| Sonner | `^2.0.6` | Toast notifications |
 
-### **Development Tools**
+**Tooling**
 
-| Technology       | Version    | Purpose               |
-| ---------------- | ---------- | --------------------- |
-| **ESLint**       | `^9.0`     | Code linting          |
-| **Autoprefixer** | `^10.4.21` | CSS vendor prefixes   |
-| **Critters**     | `^0.0.23`  | Critical CSS inlining |
+| Technology | Version | Purpose |
+|---|---|---|
+| ESLint | `^9.0` | Code linting |
+| Autoprefixer | `^10.4.21` | CSS vendor prefixing |
+| Critters | `^0.0.23` | Critical CSS inlining |
+
+---
 
 ## 🎨 Design System
 
-### **Color Palette**
+**Color Palette**
 
-| Color Category | HSL Value     | Usage                | Preview                                                            |
-| -------------- | ------------- | -------------------- | ------------------------------------------------------------------ |
-| **Background** | `240 15% 2%`  | Main background      | ![#05050a](https://via.placeholder.com/20x20/05050a/000000?text=+) |
-| **Foreground** | `220 8% 94%`  | Primary text         | ![#eeeff2](https://via.placeholder.com/20x20/eeeff2/000000?text=+) |
-| **Primary**    | `220 15% 88%` | Interactive elements | ![#dde0e6](https://via.placeholder.com/20x20/dde0e6/000000?text=+) |
-| **Secondary**  | `275 60% 45%` | Accent elements      | ![#8b5fb8](https://via.placeholder.com/20x20/8b5fb8/000000?text=+) |
-| **Accent**     | `275 70% 55%` | Highlights           | ![#a855f7](https://via.placeholder.com/20x20/a855f7/000000?text=+) |
-| **Muted**      | `240 18% 6%`  | Subtle backgrounds   | ![#0d0e14](https://via.placeholder.com/20x20/0d0e14/000000?text=+) |
-| **Card**       | `245 20% 3%`  | Component surfaces   | ![#070810](https://via.placeholder.com/20x20/070810/000000?text=+) |
+| Color | HSL | Hex | Usage |
+|---|---|---|---|
+| Background | `240 15% 2%` | `#05050a` | Main background |
+| Foreground | `220 8% 94%` | `#eeeff2` | Primary text |
+| Primary | `220 15% 88%` | `#dde0e6` | Interactive elements |
+| Secondary | `275 60% 45%` | `#8b5fb8` | Accent elements |
+| Accent | `275 70% 55%` | `#a855f7` | Highlights |
+| Muted | `240 18% 6%` | `#0d0e14` | Subtle backgrounds |
+| Card | `245 20% 3%` | `#070810` | Component surfaces |
 
-### **Typography**
+**Typography**
 
-| Font Family      | Usage                 | Weight  | Characteristics            |
-| ---------------- | --------------------- | ------- | -------------------------- |
-| **Inter**        | Body text, paragraphs | 300-700 | Clean, readable, versatile |
-| **Cutive Mono**  | Code, technical text  | 400     | Monospaced, technical feel |
-| **Nasalization** | Main headings         | 400     | Futuristic, bold display   |
-| **Quentine**     | Name, special text    | 400     | Elegant, signature style   |
+| Font | Usage | Weight | Character |
+|---|---|---|---|
+| Inter | Body text | 300–700 | Clean, readable |
+| Cutive Mono | Code/technical text | 400 | Monospaced |
+| Nasalization | Headings | 400 | Futuristic, bold |
+| Quentine | Name / signature text | 400 | Elegant |
 
-### **Visual Effects**
+**Visual Effects**
 
-| Effect             | CSS Properties                | Description              |
-| ------------------ | ----------------------------- | ------------------------ |
-| **Glass Morphism** | `backdrop-filter: blur(16px)` | Frosted glass appearance |
-| **Luxury Shadows** | `box-shadow: multiple layers` | Deep, rich shadow system |
-| **Neon Glow**      | `box-shadow: 0 0 20px purple` | Purple accent glows      |
-| **Shimmer**        | `linear-gradient animation`   | Subtle shine effects     |
+| Effect | Implementation | Description |
+|---|---|---|
+| Glass Morphism | `backdrop-filter: blur(16px)` | Frosted glass surfaces |
+| Luxury Shadows | Multi-layer `box-shadow` | Deep, rich elevation |
+| Neon Glow | Purple-tinted `box-shadow` | Accent glow on hover/focus |
+| Shimmer | Animated `linear-gradient` | Subtle shine on key elements |
+
+---
 
 ## 🚀 Quick Start
 
-### **Prerequisites**
+**Prerequisites:** Node.js 18+ and npm / yarn / pnpm
 
-- Node.js 18+
-- npm/yarn/pnpm
+```bash
+# 1. Clone the repository
+git clone https://github.com/Ratondutta12345/Portfolio.git
+cd Portfolio
 
-### **Installation**
+# 2. Install dependencies
+npm install
 
-1. **Clone the repository**
+# 3. Set up environment variables
+cp .env.example .env.local
 
-   ```bash
-   git clone https://github.com/Ratondutta12345/An.git
-   cd An
-   ```
+# 4. Start the dev server
+npm run dev
+```
 
-2. **Install dependencies**
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-   ```bash
-   npm install
-   ```
+**Build Commands**
 
-3. **Environment setup**
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server with Turbopack |
+| `npm run build` | Build for production |
+| `npm run start` | Start the production server |
+| `npm run lint` | Run ESLint checks |
 
-   ```bash
-   cp .env.example .env.local
-   ```
-
-4. **Start development server**
-
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-### **Build Commands**
-
-| Command         | Description                             |
-| --------------- | --------------------------------------- |
-| `npm run dev`   | Start development server with Turbopack |
-| `npm run build` | Build for production                    |
-| `npm run start` | Start production server                 |
-| `npm run lint`  | Run ESLint checks                       |
+---
 
 ## ⚙️ Customization
 
-### **Personal Information**
+**Personal information** — `src/constant/self.ts`
 
 ```typescript
-// src/constant/self.ts
 export const selfData = {
   name: "Your Name",
   jobTitle: "Your Title",
   email: "your.email@domain.com",
-  // ... update all personal details
+  // ...update all personal details
 };
 ```
 
-### **Projects & Experience**
+**Content files**
 
-| File                          | Purpose                |
-| ----------------------------- | ---------------------- |
-| `src/constant/projects.ts`    | Your project portfolio |
-| `src/constant/experience.ts`  | Work experience data   |
-| `src/constant/skillsData.tsx` | Technical skills       |
+| File | Purpose |
+|---|---|
+| `src/constant/projects.ts` | Project portfolio entries |
+| `src/constant/experience.ts` | Work experience timeline |
+| `src/constant/skillsData.tsx` | Technical skills list |
 
-### **Assets**
+**Assets**
 
-| Asset Type          | Location                   | Description         |
-| ------------------- | -------------------------- | ------------------- |
-| **Logo**            | `public/images/logo.svg`   | Main logo           |
-| **Profile Picture** | `src/assets/images/me.png` | About section image |
-| **Resume**          | `public/docs/`             | PDF resume file     |
-| **Fonts**           | `src/assets/fonts/`        | Custom font files   |
+| Type | Location | Notes |
+|---|---|---|
+| Logo | `public/images/logo.svg` | Main site logo |
+| Profile picture | `src/assets/images/me.png` | Used in About section |
+| Resume | `public/docs/` | PDF resume file |
+| Fonts | `src/assets/fonts/` | Custom font files |
 
-### **Styling**
-
-- **Colors:** Modify CSS custom properties in `src/app/globals.css`
-- **Fonts:** Update font configurations in `src/app/fonts.ts`
-- **Components:** Customize UI components in `src/components/ui/`
-
-## 📸 Screenshots
-
-> 🌟 **Dark Luxury Theme** - Experience the stunning dark aesthetics with purple accents
->
-> 🚀 **Lightning Fast** - Next.js 15 with Turbopack for optimal performance
->
-> 📱 **Fully Responsive** - Perfect on every device and screen size
-
-## 🔗 Connect
-
-<div align="center">
-
-| Platform         | Username                                                    | Link                         |
-| ---------------- | ----------------------------------------------------------- | ---------------------------- |
-| 🐙 **GitHub**    | [@Ratondutta12345](https://github.com/Ratondutta12345)                      | `https://github.com/Ratondutta12345` |
-| 💼 **LinkedIn**  | [Raton Dutta](https://linkedin.com/in/raton-dutta)    | Professional Network         |
-| 📸 **Instagram** | [@ratondutta12345](https://instagram.com/ratondutta12345)                 | Creative Updates             |
-| 🐦 **Twitter**   | [@ratondutta12345](https://twitter.com/ratondutta12345)                   | Tech Thoughts                |
-| 📧 **Email**     | [ratondutta444@gmail.com](mailto:ratondutta444@gmail.com) | Direct Contact               |
-
-</div>
+**Styling** — colors live in `src/app/globals.css`, fonts in `src/app/fonts.ts`, and UI primitives in `src/components/ui/`.
 
 ---
 
+## 📂 Project Structure
+
+```
+Portfolio/
+├── public/              # Static assets (images, docs, favicons)
+├── src/
+│   ├── app/             # Next.js app router, layouts, global styles
+│   ├── assets/          # Fonts and images bundled with the app
+│   ├── components/      # UI components (incl. Radix-based primitives)
+│   └── constant/        # Editable content: profile, projects, skills
+├── eslint.config.mjs
+├── next.config.ts
+├── tailwind.config.js
+└── package.json
+```
+
+---
+
+## 📸 Preview
+
+> 🌟 Dark luxury theme with purple accents
+> 🚀 Turbopack-powered, near-instant builds
+> 📱 Pixel-perfect on every screen size
+
+*(Add real screenshots or a screen recording here — a visual preview is the single biggest thing that makes visitors stop and look.)*
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 🔗 Connect
+
+| Platform | Link |
+|---|---|
+| 🐙 GitHub | [@Ratondutta12345](https://github.com/Ratondutta12345) |
+| 💼 LinkedIn | [Raton Dutta](https://linkedin.com/in/raton-dutta) |
+| 📸 Instagram | [@ratondutta12345](https://instagram.com/ratondutta12345) |
+| 🐦 Twitter / X | [@ratondutta12345](https://twitter.com/ratondutta12345) |
+| 📧 Email | [ratondutta444@gmail.com](mailto:ratondutta444@gmail.com) |
+
 <div align="center">
 
-**Built with ❤️ by [Raton Dutta](https://ratondutta.vercel.app)**
+**Built with ❤️ by [Raton Dutta](https://portfolio-e7t2.vercel.app/)**
+*Student Developer · Chief Problem Solver · Solution Sorcerer*
 
-_Student Developer | Chief Problem Solver | Solution Sorcerer_
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-ratondutta.vercel.app-9333ea?style=for-the-badge)](https://ratondutta.vercel.app)
+⭐ **Star this repo if you found it useful!**
 
 </div>
-#   P o r t f o l i o  
- 
