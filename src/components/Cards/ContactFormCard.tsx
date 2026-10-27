@@ -11,7 +11,7 @@ export const ContactFormCard = () => {
   const [formValues, setFormValues] = useState({
     senderName: "",
     senderEmail: "",
-    reasonToContact: "General inquries",
+    reasonToContact: "General inquiries",
     senderMsg: "",
   });
 
@@ -21,37 +21,42 @@ export const ContactFormCard = () => {
 
     const sendEmailPromise = new Promise(async (resolve, reject) => {
       try {
-        const response = await fetch("/api/send", {
+        const submission = new FormData();
+        submission.append("name", formValues.senderName);
+        submission.append("email", formValues.senderEmail);
+        submission.append("_subject", `Portfolio contact: ${formValues.reasonToContact}`);
+        submission.append("reason", formValues.reasonToContact);
+        submission.append("message", formValues.senderMsg);
+
+        const response = await fetch("https://formspree.io/f/xdeegpod", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            senderName: formValues.senderName,
-            senderEmail: formValues.senderEmail,
-            reasonToContact: formValues.reasonToContact,
-            senderMsg: formValues.senderMsg,
-          }),
+          headers: { Accept: "application/json" },
+          body: submission,
         });
 
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
 
         if (response.ok) {
-          console.log("✅ Email sent successfully:", data.message);
+          console.log("Email sent successfully");
           setIsSent(true);
           setFormValues({
             senderName: "",
             senderEmail: "",
-            reasonToContact: "General inquries",
+            reasonToContact: "General inquiries",
             senderMsg: "",
           });
-          resolve(data.message);
+          resolve("Your message has been sent");
         } else {
-          console.error("❌ Failed to send email:", data.error);
-          reject(new Error(data.error || "Failed to send message"));
+          const errorMessage = Array.isArray(data.errors)
+            ? data.errors
+                .map((error: { message?: string }) => error.message)
+                .filter(Boolean)
+                .join(", ")
+            : "";
+          reject(new Error(errorMessage || "Failed to send message"));
         }
       } catch (error) {
-        console.error("❌ Network error or unexpected error:", error);
+        console.error("Network error or unexpected error:", error);
         reject(error);
       } finally {
         setIsSending(false);

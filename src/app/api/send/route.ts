@@ -1,112 +1,111 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-import { render, pretty } from "@react-email/render";
 import validator from "validator";
 
-import { EmailTemplate } from "@/components/template/Email";
+const recipient = process.env.CONTACT_TO_EMAIL || "workframe79@gmail.com";
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
 
 export async function POST(request: Request) {
-  const body = await request.json();
-  const { senderName, senderEmail, reasonToContact, senderMsg } = body;
+  let body: unknown;
+
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
+
+  if (typeof body !== "object" || body === null) {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
+
+  const formData = body as Record<string, unknown>;
+  const { senderName, senderEmail, reasonToContact, senderMsg } = formData;
 
   if (
-    !senderName ||
-    !senderEmail ||
-    !reasonToContact ||
-    !senderMsg ||
     typeof senderName !== "string" ||
     typeof senderEmail !== "string" ||
     typeof reasonToContact !== "string" ||
     typeof senderMsg !== "string"
   ) {
-    return NextResponse.json({ error: "Invalid input data" }, { status: 400 });
+    return NextResponse.json({ error: "Please complete all form fields" }, { status: 400 });
   }
 
-  if (!validator.isEmail(senderEmail)) {
+  const name = senderName.trim();
+  const email = senderEmail.trim();
+  const reason = reasonToContact.trim();
+  const message = senderMsg.trim();
+
+  if (
+    !name ||
+    !email ||
+    !reason ||
+    !message ||
+    name.length > 120 ||
+    email.length > 254 ||
+    reason.length > 100 ||
+    message.length > 5000
+  ) {
+    return NextResponse.json(
+      { error: "Please complete all fields and keep your message under 5000 characters" },
+      { status: 400 }
+    );
+  }
+
+  if (!validator.isEmail(email)) {
     return NextResponse.json(
       { error: "Email format is not valid" },
       { status: 400 }
     );
   }
 
-  try {
-    const qevResponse = await fetch(
-      `http://api.quickemailverification.com/v1/verify?email=${senderEmail}&apikey=${process.env.QEV_API_KEY}`
-    );
+  const emailUser = process.env.EMAIL_USER;
+  const emailPassword = process.env.EMAIL_APP_PASSWORD;
 
-    const data = await qevResponse.json();
-
-    console.log("QuickEmailVerification response:", data);
-
-    if (data.result !== "valid") {
-      return NextResponse.json(
-        { error: "Email address is not valid" },
-        { status: 400 }
-      );
-    }
-  } catch (err) {
-    console.error("QuickEmailVerification API failed:", err);
+  if (!emailUser || !emailPassword) {
+    console.error("Contact form email is not configured");
     return NextResponse.json(
-      { error: "Email validation service unavailable" },
+      { error: "Email delivery is not configured on the server" },
       { status: 500 }
     );
   }
 
-  const htmlContent = await pretty(
-    await render(
-      EmailTemplate({
-        userName: senderName,
-        contactReason: reasonToContact,
-        userMessage: senderMsg,
-      })
-    )
-  );
-
-  const message = {
-    from: `"Raton Dutta - Contact Team" <${process.env.email_from}>`,
-    to: `${senderName} <${senderEmail}>`,
-    subject: "Your message has landed! 🚀 We'll get back to you shortly",
-    html: htmlContent,
-    headers: {
-      "X-Entity-Ref-ID": "newmail",
-    },
-  };
-
-  const adminMessage = {
-    from: `"${senderName}" <${senderEmail}>`,
-    to: process.env.email_from,
-    subject: `New Contact Form Submission from ${senderName} - ${reasonToContact}`,
-    html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>From:</strong> ${senderName} (${senderEmail})</p>
-      <p><strong>Reason:</strong> ${reasonToContact}</p>
-      <p><strong>Message:</strong></p>
-      <p>${senderMsg.replace(/\n/g, '<br>')}</p>
-    `,
-    replyTo: senderEmail,
-  };
-
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.email_from,
-      pass: process.env.email_password,
+      user: emailUser,
+      pass: emailPassword,
     },
   });
 
   try {
-    await transporter.sendMail(message);
-    await transporter.sendMail(adminMessage);
+    await transporter.sendMail({
+      from: `"Portfolio Contact Form" <${emailUser}>`,
+      to: recipient,
+      replyTo: email,
+      subject: `Portfolio contact form: ${reason}`,
+      text: `Name: ${name}\nEmail: ${email}\nReason: ${reason}\n\nMessage:\n${message}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>From:</strong> ${escapeHtml(name)} (${escapeHtml(email)})</p>
+        <p><strong>Reason:</strong> ${escapeHtml(reason)}</p>
+        <p><strong>Message:</strong></p>
+        <p>${escapeHtml(message).replaceAll("\n", "<br>")}</p>
+      `,
+    });
+
+    return NextResponse.json({ message: "Your message has been sent" });
+  } catch (error) {
+    console.error("Contact form email delivery failed:", error);
     return NextResponse.json(
-      {
-        message: `Email has been sent to ${senderEmail} successfully`,
-      },
-      { status: 200 }
-    );
-  } catch (err) {
-    console.error(`Error sending email to ${senderEmail}:`, err);
-    return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: "Failed to send your message. Please try again later." },
       { status: 500 }
     );
   }
